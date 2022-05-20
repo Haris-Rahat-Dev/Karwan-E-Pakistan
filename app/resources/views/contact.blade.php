@@ -9,7 +9,7 @@
         </div>
         <div>
             <p class="text-center text-lg md:text-xl lg:text-2xl text-custom-green font-bold">Email:</p>
-            <p class="text-center md:text-md lg:text-lg">Example@example.com</p>
+            <p class="text-center md:text-md lg:text-lg">info@karwanepakistan.org</p>
         </div>
         <div class="md:w-2/5 ">
             <p class="text-center text-lg md:text-xl text-2xl text-custom-green font-bold">Office Location:</p>

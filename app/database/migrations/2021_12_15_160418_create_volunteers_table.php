@@ -21,7 +21,7 @@ class CreateVolunteersTable extends Migration
             $table->string("university_or_institute");
             $table->string("degree");
             $table->double("whatsapp_no");
-            $table->foreignId('state_id')->constrained('states');
+            $table->foreignId("state_id")->constrained('states');
             $table->foreignId("city_id")->constrained('cities');
             $table->string("interested_department");
             $table->string("profile_pic");

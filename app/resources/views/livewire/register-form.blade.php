@@ -7,7 +7,7 @@
             </div>
         </div>
     @endif
-    <h1 class="text-2xl text-center my-12 md:text-4xl md:text-center md:my-8 md:text-custom-green lg:text-4xl lg:text-center lg:my-8 text-custom-green">Volunteer By Registering!</h1>
+    <h1 class="text-2xl text-center my-12 md:text-4xl md:text-center md:my-8 md:text-custom-green lg:text-4xl lg:text-center lg:my-8 text-custom-green">Join Us Now!</h1>
     <div class="flex flex-col justify-center items-center my-6">
         <form wire:submit.prevent="submitForm" method="post" class="w-3/5 h-auto md:w-3/12 md:h-auto lg:w-3/12 lg:h-auto">
             @csrf
@@ -72,7 +72,7 @@
                 </div>
                 @endError
             </div>
-            <div class="mb-4">
+            {{--<div class="mb-4">
                 <select name="city"  wire:model="city" value="{{ old('city') }}" class="bg-gray-00 border-2 border-custom-green w-full p-4 rounded-lg @error('city') border-red-500 @enderror">
                     <option value="">Select City</option>
                     @foreach($cities as $city)
@@ -84,7 +84,7 @@
                     <p class="text-xl text-red-500">{{ $message  }}</p>
                 </div>
                 @endError
-            </div>
+            </div>--}}
             <div class="mb-4">
                 <select  name="interested_department" wire:model.defer="interested_department" class="bg-gray-00 border-2  border-custom-green w-full p-4 rounded-lg @error('interested_department') border-red-500 @enderror">
                     <option value="">Your Department of Interest</option>

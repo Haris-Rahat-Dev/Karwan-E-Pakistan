@@ -20,11 +20,13 @@ class Volunteers extends Model
         'profile_pic'
         ];
 
-    public function volunteerBelongsTo(){
+    public function state()
+    {
         return $this->belongsTo(States::class);
     }
 
-    public function volunteerlivesIn(){
+    public function city()
+    {
         return $this->belongsTo(Cities::class);
     }
 }

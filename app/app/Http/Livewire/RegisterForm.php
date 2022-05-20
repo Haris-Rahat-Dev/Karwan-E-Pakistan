@@ -69,7 +69,7 @@ class RegisterForm extends Component
     public function render()
     {
         $states = DB::table('states')->where('country_id', '=',166)->get();
-        $cities = DB::table('cities')->where('state_id', '=', $this->state)->get();
-        return view('livewire.register-form', [ 'states' => $states, 'cities' => $cities, 'show' => $this->show ]);
+        /*$cities = DB::table('cities')->where('state_id', '=', $this->state)->get();*/
+        return view('livewire.register-form', [ 'states' => $states, 'show' => $this->show ]);
     }
 }

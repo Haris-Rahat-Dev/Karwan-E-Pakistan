@@ -20,10 +20,8 @@ module.exports = {
         },
         height: {
             'h-100' : '500px',
-        }
+        },
     },
   },
-  plugins: [
-      require('@themesberg/flowbite/plugin'),
-  ],
+  plugins: [],
 }

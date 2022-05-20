@@ -5,25 +5,30 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Karwan-e-Pakistan</title>
+    <title>Karwan-e-Pakistan Trust</title>
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/stylesheet.css') }}" rel="stylesheet">
     <link rel="shortcut icon" href="{{ asset("./favicon-32x32.png") }}" type="image/x-icon">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:ital,wght@0,300;0,700;1,300&display=swap" rel="stylesheet">
     @livewireStyles
 </head>
 <body>
-<nav class="flex flex-col md:flex md:flex-row md:justify-between md:items-center md:p-3 lg:flex lg:flex-row lg:justify-between lg:items-center lg:p-3 sticky text-xl bg-gray-50">
+<nav class="flex flex-col md:flex md:flex-row md:justify-between md:items-center md:p-3 lg:flex lg:flex-row lg:justify-between lg:items-center lg:p-3 text-xl bg-gray-50 sticky z-50 top-0">
     <div class="flex flex-row justify-between items-center px-4 md:flex md:flex-row md:justify-center md:items-center lg:flex lg:flex-row lg:justify-center lg:items-center lg:pr-3">
-        <a href="{{ route('home') }}"><img src="{{ asset("./assets/logo.png")  }}" class="w-20 h-20" alt=""></a>
-        <button class="lg:hidden md:hidden" id="flip"><span class="material-icons md-36 rounded text-custom-green bg-gray-50 hover:text-white hover:bg-custom-green p-3" style="font-size: 36px">menu</span></button>
+        <a href="{{ route('home') }}"><img  src="{{ asset("./assets/logo.png")  }}" class="w-28 h-28" alt=""></a>
+        <button class="lg:hidden md:hidden" id="flip" onclick="mobileNav()"><span class="material-icons md-36 rounded text-custom-green bg-gray-50 hover:text-white hover:bg-custom-green p-3" style="font-size: 36px">menu</span></button>
     </div>
-    <div id="panel" class="flex flex-col justify-start md:flex md:flex-row md:justify-between md:items-center md:flex-1 lg:flex lg:flex-row lg:justify-between lg:items-center lg:flex-1 ">
+    <div id="panel" class="flex flex-col justify-start md:flex md:flex-row md:justify-between md:items-center lg:flex lg:flex-row lg:justify-between lg:items-center ">
         <ul class="flex flex-col justify-start p-3 md:flex md:flex-row md:items-center md:space-x-2 lg:flex lg:flex-row lg:justify-start lg:items-center lg:space-x-4">
             <li class="my-4 md:my-0 lg:my-0"><a href="{{ route('home') }}" class="text-xl rounded text-custom-green bg-gray-50 hover:text-white hover:bg-custom-green p-3 {{ (request()->is('/')) ? 'border-2 border-custom-green' : '' }}"><button>Home</button></a></li>
             <li class="my-4 lg:my-0 md:my-0"><a href="{{ route('ourTeam') }}" class="text-xl rounded text-custom-green bg-gray-50 hover:text-white hover:bg-custom-green p-3 {{ (request()->is('OurTeam')) ? 'border-2 border-custom-green' : '' }}"><button>Our Team</button></a></li>
             <li class="my-4 lg:my-0 md:my-0"><a href="{{ route('magazine') }}" class="text-xl rounded text-custom-green bg-gray-50 hover:text-white hover:bg-custom-green p-3 {{ (request()->is('magazine')) ? 'border-2 border-custom-green' : '' }}"><button>Magazine Corner</button></a></li>
+            <li class="my-4 lg:my-0 md:my-0"><a href="{{ route('Activities') }}" class="text-xl rounded text-custom-green bg-gray-50 hover:text-white hover:bg-custom-green p-3 {{ (request()->is('Activities')) ? 'border-2 border-custom-green' : '' }}"><button>Activities</button></a></li>
+            <li class="my-4 lg:my-0 md:my-0"><a href="{{ route('Events') }}" class="text-xl rounded text-custom-green bg-gray-50 hover:text-white hover:bg-custom-green p-3 {{ (request()->is('Events')) ? 'border-2 border-custom-green' : '' }}"><button>Events</button></a></li>
             <li class="my-4 md:my-0 lg:my-0"><a href="{{ route('contactUs') }}" class="text-xl rounded text-custom-green bg-gray-50 hover:text-white hover:bg-custom-green p-3 {{ (request()->is('contactUs')) ? 'border-2 border-custom-green' : '' }}"><button>Contact Us</button></a></li>
         </ul>
         <ul class="pl-3">
@@ -32,27 +37,30 @@
     </div>
 </nav>
 @yield('content')
-<footer class="py-6 bg-gray-50">
-    <div class="flex flex-row justify-evenly items-center text-center pr-4 md:flex md:flex-row md:justify-evenly md:items-center lg:flex lg:flex-row lg:justify-evenly lg:items-center ">
+<footer class="py-6 bg-gray-100">
+    <div class="flex flex-row justify-evenly items-center text-center pr-4 md:flex md:flex-row md:justify-between md:items-center lg:flex lg:flex-row lg:justify-between lg:items-center px-8">
         <div class="text-custom-green">
-            2021 ©; Copyrights Thinking
+            2021 ©; Copyrights Neural Age
         </div>
         <div>
             <a href="{{ route('contactUs') }}" class="text-custom-green">Contact Us</a>
         </div>
-        <div class="flex flex-row space-x-2">
-            <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" data-name="Layer 1" viewBox="0 0 24 24"><path d="M15.12,5.32H17V2.14A26.11,26.11,0,0,0,14.26,2C11.54,2,9.68,3.66,9.68,6.7V9.32H6.61v3.56H9.68V22h3.68V12.88h3.06l.46-3.56H13.36V7.05C13.36,6,13.64,5.32,15.12,5.32Z"/></svg>
-            <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" data-name="Layer 1" viewBox="0 0 24 24"><path d="M22,5.8a8.49,8.49,0,0,1-2.36.64,4.13,4.13,0,0,0,1.81-2.27,8.21,8.21,0,0,1-2.61,1,4.1,4.1,0,0,0-7,3.74A11.64,11.64,0,0,1,3.39,4.62a4.16,4.16,0,0,0-.55,2.07A4.09,4.09,0,0,0,4.66,10.1,4.05,4.05,0,0,1,2.8,9.59v.05a4.1,4.1,0,0,0,3.3,4A3.93,3.93,0,0,1,5,13.81a4.9,4.9,0,0,1-.77-.07,4.11,4.11,0,0,0,3.83,2.84A8.22,8.22,0,0,1,3,18.34a7.93,7.93,0,0,1-1-.06,11.57,11.57,0,0,0,6.29,1.85A11.59,11.59,0,0,0,20,8.45c0-.17,0-.35,0-.53A8.43,8.43,0,0,0,22,5.8Z"/></svg>
-            <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" data-name="Layer 1" viewBox="0 0 24 24"><path d="M17.34,5.46h0a1.2,1.2,0,1,0,1.2,1.2A1.2,1.2,0,0,0,17.34,5.46Zm4.6,2.42a7.59,7.59,0,0,0-.46-2.43,4.94,4.94,0,0,0-1.16-1.77,4.7,4.7,0,0,0-1.77-1.15,7.3,7.3,0,0,0-2.43-.47C15.06,2,14.72,2,12,2s-3.06,0-4.12.06a7.3,7.3,0,0,0-2.43.47A4.78,4.78,0,0,0,3.68,3.68,4.7,4.7,0,0,0,2.53,5.45a7.3,7.3,0,0,0-.47,2.43C2,8.94,2,9.28,2,12s0,3.06.06,4.12a7.3,7.3,0,0,0,.47,2.43,4.7,4.7,0,0,0,1.15,1.77,4.78,4.78,0,0,0,1.77,1.15,7.3,7.3,0,0,0,2.43.47C8.94,22,9.28,22,12,22s3.06,0,4.12-.06a7.3,7.3,0,0,0,2.43-.47,4.7,4.7,0,0,0,1.77-1.15,4.85,4.85,0,0,0,1.16-1.77,7.59,7.59,0,0,0,.46-2.43c0-1.06.06-1.4.06-4.12S22,8.94,21.94,7.88ZM20.14,16a5.61,5.61,0,0,1-.34,1.86,3.06,3.06,0,0,1-.75,1.15,3.19,3.19,0,0,1-1.15.75,5.61,5.61,0,0,1-1.86.34c-1,.05-1.37.06-4,.06s-3,0-4-.06A5.73,5.73,0,0,1,6.1,19.8,3.27,3.27,0,0,1,5,19.05a3,3,0,0,1-.74-1.15A5.54,5.54,0,0,1,3.86,16c0-1-.06-1.37-.06-4s0-3,.06-4A5.54,5.54,0,0,1,4.21,6.1,3,3,0,0,1,5,5,3.14,3.14,0,0,1,6.1,4.2,5.73,5.73,0,0,1,8,3.86c1,0,1.37-.06,4-.06s3,0,4,.06a5.61,5.61,0,0,1,1.86.34A3.06,3.06,0,0,1,19.05,5,3.06,3.06,0,0,1,19.8,6.1,5.61,5.61,0,0,1,20.14,8c.05,1,.06,1.37.06,4S20.19,15,20.14,16ZM12,6.87A5.13,5.13,0,1,0,17.14,12,5.12,5.12,0,0,0,12,6.87Zm0,8.46A3.33,3.33,0,1,1,15.33,12,3.33,3.33,0,0,1,12,15.33Z"/></svg>
-            <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" viewBox="0 0 24 24"><path d="M14.89,10.48l-3-1.74a1.73,1.73,0,0,0-1.76,0,1.71,1.71,0,0,0-.87,1.52v3.48a1.71,1.71,0,0,0,.87,1.52,1.73,1.73,0,0,0,1.76,0l3-1.74a1.76,1.76,0,0,0,0-3Zm-3.65,2.84V10.68L13.52,12ZM19,4H5A3,3,0,0,0,2,7V17a3,3,0,0,0,3,3H19a3,3,0,0,0,3-3V7A3,3,0,0,0,19,4Zm1,13a1,1,0,0,1-1,1H5a1,1,0,0,1-1-1V7A1,1,0,0,1,5,6H19a1,1,0,0,1,1,1Z"/></svg>
+        <div class="flex flex-col md:flex md:flex-row md:items-center lg:flex lg:flex-row lg:items-center space-x-2">
+            <p class="text-custom-green text-lg">Connect with Us</p>
+           <div class="flex flex-row space-x-2">
+               <a target="_blank" href="https://www.facebook.com/Karwaanepakistan1/"><i class="fab fa-facebook-f fa-lg p-2 rounded bg-[#1877F2] text-white hover:bg-custom-green"></i></a>
+               <a target="_blank" href="https://twitter.com/KarwanePakistan?t=Yzf65s-XwpVcthbLAOjJ9w&s=09"><i class="fab fa-twitter fa-lg p-2 rounded bg-[#1DA1F2] text-white hover:bg-custom-green"></i></a>
+               <a target="_blank" href=""><i class="fab fa-instagram fa-lg p-2 rounded bg-[#E4405F] text-white hover:bg-custom-green"></i></a>
+               <a target="_blank" href="https://youtube.com/channel/UCj-o5u7HtAqyaEJQFSuzWcw"><i class="fab fa-youtube fa-lg p-2 rounded bg-[#FF0000] text-white hover:bg-custom-green"></i></a>
+           </div>
         </div>
     </div>
 </footer>
 <script type="text/javascript"  src="{{asset("js/effects.js")}}" defer></script>
-<script type="text/javascript"  src="{{asset("js/flowbite.bundle.js")}}" defer></script>
 <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
 {{--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>--}}
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script src="https://kit.fontawesome.com/bde7c7e20a.js" crossorigin="anonymous"></script>
 <script>
     AOS.init();
 </script>
